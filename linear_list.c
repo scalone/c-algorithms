@@ -126,48 +126,57 @@ char menu(void) {
   char option;
 
   do {
-    printf("\nOperaÃ§Ã£o: (i)nserir, (r)emover ou (s)air? \n");
+    option = '\0';
+    printf("\nOperation\n (i)nsert\n (r)remove\n (c)lear\n (s)how\n (e)xit? \n");
     scanf("%c", &option);
     getchar();
-  } while (option != 'i' && option != 'r' && option != 's');
+  } while (option != 'i' && option != 'r' && option != 'e' && option != 'c' && option != 's');
 
   return option;
 }
 
 int main(int argc, char *argv[]) {
-  Node list_linear[LIST_MAX_LEN], new_carac;
+  Node list[LIST_MAX_LEN], new;
   int pos_final, pos_insert, pos_remove;
 
-  initialize(list_linear, &pos_final);
-  show(list_linear, pos_final);
+  initialize(list, &pos_final);
+  show(list, pos_final);
 
   while(1) {
     char option = menu();
     switch(option) {
       case 'i':
-        printf("\n\nInforme o new elemento da list (caractere): ");
-        scanf("%c", &new_carac);
+        printf("\n\nInform new element (character): ");
+        scanf("%c", &new);
+        getchar();
 
-        printf("\nPosição para insert: ");
+        printf("\nPosition to insert: ");
         scanf("%d", &pos_insert);
         getchar();
 
-        insert(list_linear, pos_insert, new_carac, &pos_final);
+        insert(list, pos_insert, new, &pos_final);
         break;
 
       case 'r':
-        printf("\nPosição para delete: ");
+        printf("\nPosition to delete: ");
         scanf("%d", &pos_remove);
         getchar();
 
-        delete(list_linear, pos_remove, &pos_final);
+        delete(list, pos_remove, &pos_final);
         break;
+
+      case 'c':
+        initialize(list, &pos_final);
+        break;
+
+      case 's':
+        show(list, pos_final);
 
       default:
         exit(0);
     }
 
-    show(list_linear, pos_final);
+    show(list, pos_final);
   }
 
   return 0;
