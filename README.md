@@ -1,4 +1,4 @@
-# MRuby-pax
+# # C Algorithms
 
 Academic project to apply data structure concepts and in a future GC and runtimes varieties.
 
