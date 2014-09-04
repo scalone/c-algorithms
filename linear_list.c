@@ -62,7 +62,10 @@ int insert(Node list[LIST_MAX_LEN], int position, Node new, int *pos_final) {
 
     return 0; // OK
   }
+
+  return 0;
 }
+
 
 int delete(Node list[LIST_MAX_LEN], int position, int *pos_final) {
 
