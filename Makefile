@@ -1,6 +1,9 @@
 
 CC=gcc
-TARGET=linear_list
+ifndef TARGET
+	TARGET=stack
+endif
+
 
 all:
 	$(CC) -o $(TARGET).o $(TARGET).c
