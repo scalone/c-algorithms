@@ -1,9 +1,8 @@
 
 CC=gcc
 ifndef TARGET
-	TARGET=stack
+	TARGET=stack_static
 endif
-
 
 all:
 	$(CC) -o $(TARGET).o $(TARGET).c
@@ -11,5 +10,5 @@ all:
 clean:
 	rm $(TARGET)
 
-execute:
+execute: all
 	./$(TARGET).o
